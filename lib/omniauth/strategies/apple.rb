@@ -14,7 +14,8 @@ module OmniAuth
              token_url: '/auth/token'
       option :authorize_params,
              response_mode: 'form_post',
-             scope: 'email name'
+             scope: 'email name',
+             response_type: 'code id_token'
       option :authorized_client_ids, []
 
       uid { id_info['sub'] }
@@ -44,6 +45,10 @@ module OmniAuth
 
       def callback_url
         options[:redirect_uri] || (full_host + script_name + callback_path)
+      end
+
+      def request_phase
+        redirect client.auth_code.authorize_url({:redirect_uri => callback_url}.merge(authorize_params)).gsub(/\+/, '%20')
       end
 
       private
