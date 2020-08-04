@@ -15,7 +15,7 @@ module OmniAuth
       option :authorize_params,
              response_mode: 'form_post',
              scope: 'email name',
-             response_type: 'code id_token'
+             response_type: 'id_token'
       option :authorized_client_ids, []
 
       uid { id_info['sub'] }
