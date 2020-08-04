@@ -5,7 +5,7 @@ require "omniauth/apple/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "omniauth-apple"
-  spec.version       = Omniauth::Apple::VERSION
+  spec.version       = OmniAuth::Apple::VERSION
   spec.authors       = ["nhosoya", "Fabian Jäger"]
   spec.email         = ["hnhnnhnh@gmail.com", "fabian@mailbutler.io"]
 
@@ -37,7 +37,10 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'omniauth-oauth2'
-  spec.add_dependency 'json-jwt', '~> 1.11'
+  spec.add_dependency 'jwt'
   spec.add_development_dependency "bundler", "~> 2.0"
-  spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_development_dependency "rake", "~> 13.0"
+  spec.add_development_dependency "rspec", "~> 3.9"
+  spec.add_development_dependency "webmock", "~> 3.8"
+  spec.add_development_dependency 'simplecov', "~> 0.18"
 end
